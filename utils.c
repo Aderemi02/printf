@@ -1,8 +1,10 @@
-#include "main.h"/**
+#include "main.h"
+/**
  * is_printable - Evaluates if a char is printable
  * @c: Char to be evaluated.
  * Return: 1 if c is printable else 0
  */
+
 int is_printable(char c)
 {
 	if (c >= 32 && c < 127)
@@ -39,6 +41,7 @@ int append_hexa_code(char ascii_code, char buffer[], int i)
  * @c: Char to be evaluated
  * Return: 1 if c is a digit else 0
  */
+
 int is_digit(char c)
 {
 	if (c >= '0' && c <= '9')
