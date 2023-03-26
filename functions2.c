@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * print_pointer - prints a  pointer
+ * print_pointer - prints a pointer
  * @types: types of args
  * @buffer: buffer array
  * @flags: calculate flags
  * @width: width
  * @precision: precision
  * @size: size
- * Return: number of chars
+ * Return: pointer to number of chars
  */
 
 int print_pointer(va_list types, char buffer[],
@@ -43,9 +43,11 @@ int print_pointer(va_list types, char buffer[],
 		pad = '0';
 
 	if (flags & F_PLUS)
-		extra_c = '+', len++;
+		extra_c = '+';
+	len++;
 	else if (flags & F_SPACE)
-		extra_c = ' ', len++;
+		extra_c = ' ';
+	len++;
 	index++;
 
 	return (write_pointer(buffer, index, len, width,
