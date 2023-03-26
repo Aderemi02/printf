@@ -1,7 +1,5 @@
 #include "main.h"
 
-/*************PRINT CHAR***********/
-
 /**
  * print_char - prints char
  * @types: types of args
@@ -17,11 +15,8 @@ int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char c = va_arg(types, int);
-
 	return (handle_write_char(c, buffer, flags, width, precision, size));
 }
-
-/***************PRINT STRING**********************/
 
 /**
  * print_string - prints string
@@ -40,20 +35,22 @@ int print_string(va_list types, char buffer[],
 	int len = 0;
 	int i;
 	char *str = va_arg(types, char *);
-
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
+	
 	if (str == NULL)
 	{
 		str = "(null)";
 		if (precision >= 6)
 			str = "      ";
 	}
+	
 	while (str[len] != '\0')
 		len++;
+	
 	if (precision >= 0 && precision < len)
 		len = precision;
 	if (width > len)
@@ -75,8 +72,6 @@ int print_string(va_list types, char buffer[],
 	}
 	return (write(1, str, len));
 }
-
-/************** PRINT PERCENT SIGN ***************/
 
 /**
  * print_percent - Prints a percent sign
@@ -100,9 +95,6 @@ int print_percent(va_list types, char buffer[],
 	UNUSED(size);
 	return (write(1, "%", 1));
 }
-
-
-/******************** PRINT INT ********************/
 
 /**
  * print_int - Print int
