@@ -1,10 +1,7 @@
 #include "main.h"
 
-/***************PRINT POINTER***************/
-
 /**
  * print_pointer - prints a  pointer
- * type
  * @types: types of args
  * @buffer: buffer array
  * @flags: calculate flags
