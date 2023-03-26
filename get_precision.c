@@ -1,4 +1,4 @@
-#include "maih.h"
+#include "main.h"
 
 /**
  * get_precision - gets precision

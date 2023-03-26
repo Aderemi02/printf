@@ -1,4 +1,4 @@
-#include "maih.h"
+#include "main.h"
 
 /**
  * get_width - gets width to print
