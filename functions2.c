@@ -1,21 +1,21 @@
 #include "main.h"
 
 /**
- * print_pointer - prints a pointer
- * @types: types of args
- * @buffer: buffer array
+ * print_pointer - Prints a pointer value
+ * @types: list of args
+ * @buffer: Buffer array
  * @flags: calculate flags
- * @width: width
- * @precision: precision
- * @size: size
- * Return: pointer to number of chars
+ * @width: gets width
+ * @precision: Precision specifier
+ * @size: Size specifier
+ * Return: Num of chars in the pointer
  */
 
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char extra_c = 0, pad = ' ';
-	int index, pad_start = 1, len;
+	int index = BUFF_SIZE - 2, pad_start = 1, len = 0;
 	char map_to[] = "0123456789abcdef";
 	unsigned long num_adrs;
 	void *adrs = va_arg(types, void *);
@@ -23,14 +23,13 @@ int print_pointer(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(size);
 	UNUSED(precision);
+	
 	if (adrs == NULL)
 		return (write(1, "(nul)", 5));
 
 	buffer[BUFF_SIZE - 1] = '\0';
 
 	num_adrs = (unsigned long)adrs;
-	index = BUFF_SIZE - 2;
-	len = 2;
 
 	while (num_adrs > 0)
 	{
@@ -48,8 +47,8 @@ int print_pointer(va_list types, char buffer[],
 	
 	index++;
 
-	return (write_pointer(buffer, index, len, width,
-				flags, pad, extra_c, pad_start));
+	return (write_pointer(buffer, index, len, 
+		width, flags, pad, extra_c, pad_start));
 }
 
 /**
