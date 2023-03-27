@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * print_char - prints char
  * @types: types of args
@@ -42,7 +41,6 @@ int print_string(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
-
 	if (str == NULL)
 	{
 		str = "(null)";
@@ -52,8 +50,10 @@ int print_string(va_list types, char buffer[],
 
 	while (str[len] != '\0')
 		len++;
+
 	if (precision >= 0 && precision < len)
 		len = precision;
+	
 	if (width > len)
 	{
 		if (flags & F_MINUS)
@@ -94,7 +94,8 @@ int print_percent(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
-	return (write(1, "%", 1));
+
+	return (write(1, "%%", 1));
 }
 
 /**
