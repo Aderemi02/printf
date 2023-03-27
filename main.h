@@ -64,11 +64,6 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 
 int is_printable(char c);
 
-int printp_pointer(va_list types, char buffer[],
-		int flags, int width, int precision, int size);
-int writep_pointer(char buffer[], int ind);
-
-
 int append_hexa_code(char ascii_code, char buffer[], int i);
 
 int is_digit(char c);
