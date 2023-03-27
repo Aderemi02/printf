@@ -32,8 +32,7 @@ int print_char(va_list types, char buffer[],
 int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int len;
-	int i;
+	int len, i;
 	char *str = va_arg(types, char *);
 
 	UNUSED(buffer);
@@ -41,7 +40,6 @@ int print_string(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
-
 	if (str == NULL)
 	{
 		str = "(null)";
@@ -52,8 +50,10 @@ int print_string(va_list types, char buffer[],
 
 	while (str[len] != '\0')
 		len++;
+
 	if (precision >= 0 && precision < len)
 		len = precision;
+
 	if (width > len)
 	{
 		if (flags & F_MINUS)
