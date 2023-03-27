@@ -48,12 +48,10 @@ int print_string(va_list types, char buffer[],
 		if (precision >= 6)
 			str = "      ";
 	}
-
 	len = 0;
 
 	while (str[len] != '\0')
 		len++;
-
 	if (precision >= 0 && precision < len)
 		len = precision;
 	if (width > len)
@@ -96,7 +94,7 @@ int print_percent(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
-	return (write(1, "%%", 1));
+	return (write(1, "%", 1));
 }
 
 /**
