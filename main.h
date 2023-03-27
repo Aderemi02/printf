@@ -66,7 +66,7 @@ int is_printable(char c);
 
 int append_hexa_code(char ascii_code, char buffer[], int i);
 
-int is_digit(char c);
+int is_digit(char);
 
 long int convert_size_number(long int num, int size);
 
