@@ -52,8 +52,6 @@ int print_pointer(va_list types, char buffer[],
 				flags, pad, extra_c, pad_start));
 }
 
-/************PRINT NON PRINTABLE*****************/
-
 /**
  * print_non_printable - prints ascii codes in hexa
  *  * @types: types of args
@@ -94,8 +92,6 @@ int print_non_printable(va_list types, char buffer[],
 
 	return (write(1, buffer, i + offset));
 }
-
-/***************PRINT REVERSE****************/
 
 /**
  * print_reverse - Prints reverse of a string
@@ -141,8 +137,6 @@ int print_reverse(va_list types, char buffer[],
 	}
 	return (count);
 }
-
-/*************PRINTS STRING IN ROT13*******************/
 
 /**
  * print_rot13string - Print a string in rot13.
@@ -195,4 +189,3 @@ int print_rot13string(va_list types, char buffer[],
 	}
 	return (count);
 }
-
