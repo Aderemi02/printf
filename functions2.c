@@ -16,21 +16,23 @@ int print_pointer(va_list types, char buffer[],
 {
 	char extra_c = 0;
 	char pad = ' ';
-	int index = BUFF_SIZE - 2, pad_start = 1, len = 2;
+	int index, pad_start = 1, len;
 	char map_to[] = "0123456789abcdef";
 	unsigned long num_adrs;
 	void *adrs = va_arg(types, void *);
 
 	UNUSED(width);
 	UNUSED(size);
+	UNUSED(precision);
 
 	if (adrs == NULL)
 		return (write(1, "(nul)", 5));
 
 	buffer[BUFF_SIZE - 1] = '\0';
-	UNUSED(precision);
 
 	num_adrs = (unsigned long)adrs;
+	index = BUFF_SIZE - 2;
+	len = 2;
 
 	while (num_adrs > 0)
 	{
@@ -44,6 +46,7 @@ int print_pointer(va_list types, char buffer[],
 
 	if (flags & F_PLUS)
 		extra_c = '+', len++;
+
 	else if (flags & F_SPACE)
 		extra_c = ' ', len++;
 	index++;
