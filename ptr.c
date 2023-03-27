@@ -7,12 +7,18 @@
  * Return: pointer to number of chars
  */
 
-int printp_pointer(va_list types, char buffer[])
+int printp_pointer(va_list types, char buffer[],
+		int flags, int width, int precision, int size)
 {
 	int index = BUFF_SIZE - 2, len = 2;
 	char map_to[] = "0123456789abcdef";
 	unsigned long num_adrs;
 	void *adrs = va_arg(types, void *);
+        
+	UNUSED(flags);
+        UNUSED(width);
+        UNUSED(precision);
+        UNUSED(size);
 
 	if (adrs == NULL)
 		return (write(1, "(nul)", 5));
