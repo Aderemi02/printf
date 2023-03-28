@@ -23,7 +23,7 @@ int print_pointer(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(size);
 	UNUSED(precision);
-	
+
 	if (adrs == NULL)
 		return (write(1, "(nul)", 5));
 
@@ -44,11 +44,10 @@ int print_pointer(va_list types, char buffer[],
 		extra_c = '+', len++;
 	else if (flags & F_SPACE)
 		extra_c = ' ', len++;
-	
 	index++;
 
-	return (write_pointer(buffer, index, len, 
-		width, flags, pad, extra_c, pad_start));
+	return (write_pointer(buffer, index, len,
+				width, flags, pad, extra_c, pad_start));
 }
 
 /**
